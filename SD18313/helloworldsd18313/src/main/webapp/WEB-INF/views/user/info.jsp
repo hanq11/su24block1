@@ -13,5 +13,10 @@
         <li>Username: ${username}</li>
         <li>Password: ${password}</li>
     </ul>
+    <a href="/user/readCookie">Read Cookie</a>
+    <br>
+    <p>Username: ${usr}</p>
+    <br>
+    <p>Password: ${pwd}</p>
 </body>
 </html>
