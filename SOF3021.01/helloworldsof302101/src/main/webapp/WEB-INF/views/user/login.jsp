@@ -17,6 +17,7 @@
         <div>Password: </div>
         <input name="password">
         <br>
+        <div><input type="checkbox" name="remember">Remember me?</div>
         <button>Login</button>
     </form>
 </body>
