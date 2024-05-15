@@ -12,7 +12,7 @@
         <button type="submit">Search</button>
     </form>
     <br/>
-    <button><a href="/student/add">Add Student</a></button>
+    <button><a href="/student/create">Add Student</a></button>
     <tr>
         <th>STT</th>
         <th>MSSV</th>
@@ -33,8 +33,8 @@
                 <td>${student.address}</td>
                 <td>${student.gender ? "Nam" : "Nữ"}</td>
                 <td>
-                    <a href="">Sửa</a>
-                    <a href="">Xoá</a>
+                    <a href="/student/update/${student.id}">Sửa</a>
+                    <a href="/student/delete?id=${student.id}">Xoá</a>
                 </td>
             </tr>
         </c:forEach>

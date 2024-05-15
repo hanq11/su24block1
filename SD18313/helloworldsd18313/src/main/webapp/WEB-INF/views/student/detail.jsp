@@ -5,14 +5,14 @@
     <title>Chi tiết sinh viên</title>
 </head>
 <body>
-    MSSV:
+    MSSV: ${student.id}
     <br/>
-    Ten:
+    Ten: ${student.name}
     <br/>
-    Tuoi:
+    Tuoi: ${student.age}
     <br/>
-    Dia chi:
+    Dia chi: ${student.address}
     <br/>
-    Gioi tinh:
+    Gioi tinh: ${student.gender ? "Nam" : "Nu"}
 </body>
 </html>

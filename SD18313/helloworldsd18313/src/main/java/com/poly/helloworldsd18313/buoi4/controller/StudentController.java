@@ -16,4 +16,39 @@ public class StudentController {
         model.addAttribute("list", service.getAll());
         return "student/index";
     }
+
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable("id") String id, Model model) {
+        model.addAttribute("student", service.findById(id));
+        return "student/update";
+    }
+
+    @PostMapping("/update")
+    public String update(Student student) {
+        service.update(student);
+        return "redirect:/student";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") String id) {
+        service.delete(id);
+        return "redirect:/student";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm() {
+        return "student/form";
+    }
+
+    @PostMapping("/create")
+    public String create(Student student) {
+        service.create(student);
+        return "redirect:/student";
+    }
+
+    @GetMapping("/detail")
+    public String showDetailById(@RequestParam("id") String id, Model model) {
+        model.addAttribute("student", service.findById(id));
+        return "student/detail";
+    }
 }
