@@ -1,12 +1,10 @@
 package com.fpoly.helloworldsd18301.buoi4.controller;
 
+import com.fpoly.helloworldsd18301.buoi4.entity.Student;
 import com.fpoly.helloworldsd18301.buoi4.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/student")
@@ -19,4 +17,38 @@ public class StudentController {
         return "student/index";
     }
 
+    @GetMapping("/update/{id}")
+    public String showFormUpdate(@PathVariable("id") String id, Model model) {
+        model.addAttribute("student", service.findById(id));
+        return "student/update";
+    }
+
+    @PostMapping("/update")
+    public String update(Student student) {
+        service.update(student);
+        return "redirect:/student";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") String id) {
+        service.delete(id);
+        return "redirect:/student";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm() {
+        return "student/form";
+    }
+
+    @PostMapping("/create")
+    public String create(Student student) {
+        service.create(student);
+        return "redirect:/student";
+    }
+
+    @GetMapping("/detail")
+    public String showDetailById(@RequestParam("id") String id, Model model) {
+        model.addAttribute("student", service.findById(id));
+        return "student/detail";
+    }
 }

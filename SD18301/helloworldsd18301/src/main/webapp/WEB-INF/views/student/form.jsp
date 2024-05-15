@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<form action="/student/add" method="post">
+<form action="/student/create" method="post">
     MSSV: <input type="text" name="id"/>
     <br/>
     Tên: <input type="text" name="name"/>
