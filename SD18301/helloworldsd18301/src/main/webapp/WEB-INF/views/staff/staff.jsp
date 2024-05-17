@@ -11,14 +11,21 @@
 <body>
 ${message}
     <form:form action="/staff/form" method="post" modelAttribute="staff">
-        Ten: <form:input path="name"/> <br>
-        Tuoi : <form:input path="age"/> <br>
-        Dia chi: <form:input path="address"/> <br>
-        Vi Tri: <form:radiobuttons path="position" items="${positions}" delimiter=" "/> <br>
-        So Thich: <form:checkboxes path="hobbies" items="${hobbies}" delimiter=""/> <br>
+        Ten: <form:input path="name"/>
+        <form:errors path="name"/><br>
+        Tuoi : <form:input path="age"/>
+        <form:errors path="age"/><br>
+        Dia chi: <form:input path="address"/>
+        <form:errors path="address"/><br>
+        Vi Tri: <form:radiobuttons path="position" items="${positions}" delimiter=" "/>
+        <form:errors path="position"/><br>
+        So Thich: <form:checkboxes path="hobbies" items="${hobbies}" delimiter=""/>
+        <form:errors path="hobbies"/><br>
         Quoc Gia: <form:select path="country.id">
+            <option selected disabled hidden>Choose here</option>
             <form:options items="${countries}" itemLabel="name" itemValue="id"></form:options>
         </form:select>
+        <form:errors path="country"/>
         <br>
         <button>Save</button>
     </form:form>

@@ -2,8 +2,10 @@ package com.fpoly.helloworldsd18301.buoi56.controller;
 
 import com.fpoly.helloworldsd18301.buoi56.entity.Country;
 import com.fpoly.helloworldsd18301.buoi56.entity.Staff;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,7 +48,10 @@ public class StaffController {
     }
 
     @PostMapping("/form")
-    public String save(@ModelAttribute("staff") Staff staff,Model model) {
+    public String save(@Valid @ModelAttribute("staff") Staff staff, BindingResult result, Model model) {
+        if(result.hasErrors()) {
+            return "staff/staff";
+        }
         model.addAttribute("message", "Luu thanh cong");
         return "staff/staff";
     }
