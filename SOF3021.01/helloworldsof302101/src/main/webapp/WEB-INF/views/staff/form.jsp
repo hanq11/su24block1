@@ -12,18 +12,26 @@
 ${message}
     <form:form action="/staff/form" method="post" modelAttribute="staff">
         Ten: <form:input path="name"/>
+        <form:errors path="name"/>
         <br>
         Tuoi: <form:input path="age"/>
+        <form:errors path="age"/>
         <br>
         Dia chi: <form:input path="address"/>
+        <form:errors path="address"/>
         <br>
         Vi tri: <form:radiobuttons path="position" items="${positions}"/>
+        <form:errors path="position"/>
         <br>
         So Thich: <form:checkboxes path="hobbies" items="${hobbies}"/>
+        <form:errors path="hobbies"/>
         <br>
         Quoc gia: <form:select path="country.id">
-            <form:options items="${countries}" itemLabel="name" itemValue="id"/>
+        <option selected hidden>Choose here</option>
+        <form:options items="${countries}" itemLabel="name" itemValue="id"/>
+
         </form:select>
+        <form:errors path="country"/>
         <br>
         <button>Save</button>
     </form:form>
