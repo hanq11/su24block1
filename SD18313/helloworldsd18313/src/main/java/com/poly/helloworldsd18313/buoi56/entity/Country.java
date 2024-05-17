@@ -1,5 +1,6 @@
 package com.poly.helloworldsd18313.buoi56.entity;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
