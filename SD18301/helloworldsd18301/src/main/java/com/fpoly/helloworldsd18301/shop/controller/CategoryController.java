@@ -1,6 +1,7 @@
 package com.fpoly.helloworldsd18301.shop.controller;
 
 import com.fpoly.helloworldsd18301.shop.entity.Category;
+import com.fpoly.helloworldsd18301.shop.repository.CategoryRepository;
 import com.fpoly.helloworldsd18301.shop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class CategoryController {
     @Autowired
     CategoryService service;
+
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @GetMapping("/list")
     public String showList(Model model, @RequestParam(name = "p", defaultValue = "0") int p) {
@@ -47,5 +51,23 @@ public class CategoryController {
     public String updateCategory(Category category) {
         service.updateCategory(category);
         return "redirect:/shop/category/list";
+    }
+
+    @ResponseBody
+    @GetMapping("/findByName")
+    public Category findByName(@RequestParam("name") String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
+
+    @ResponseBody
+    @GetMapping("/findByNameJPQL")
+    public Category findByNameJPQL(@RequestParam("name") String name) {
+        return categoryRepository.findCategoryJPQL(name);
+    }
+
+    @ResponseBody
+    @GetMapping("/findByNameSQL")
+    public Category findByNameSQL(@RequestParam("name") String name) {
+        return categoryRepository.findCategorySQL(name);
     }
 }

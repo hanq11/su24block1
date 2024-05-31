@@ -45,4 +45,9 @@ public class CategoryServiceImpl implements CategoryService {
     public void deleteCategory(String id) {
         categoryRepository.deleteById(id);
     }
+
+    @Override
+    public List<Category> getAllNonPaging() {
+        return categoryRepository.findAll();
+    }
 }
