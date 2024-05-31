@@ -44,4 +44,9 @@ public class CategoryServiceImpl implements CategoryService {
     public Category getCategoryById(String id) {
         return categoryRepository.findById(id).get();
     }
+
+    @Override
+    public List<Category> getAllCategoryNonPaging() {
+      return categoryRepository.findAll();
+    };
 }

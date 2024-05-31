@@ -1,6 +1,7 @@
 package com.poly.helloworldsd18313.shop.controller;
 
 import com.poly.helloworldsd18313.shop.entity.Category;
+import com.poly.helloworldsd18313.shop.repository.CategoryRepository;
 import com.poly.helloworldsd18313.shop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
+
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @GetMapping("/list")
     public String showList(Model model
@@ -48,5 +52,23 @@ public class CategoryController {
     public String updateCategory(Category category) {
         categoryService.updateCategory(category);
         return "redirect:/shop/category/list";
+    }
+
+    @ResponseBody
+    @GetMapping("/findByName")
+    public Category findByName(@RequestParam("name") String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
+
+    @ResponseBody
+    @GetMapping("/findCategoryJPQL")
+    public Category findCategoryJPQL(@RequestParam("name") String name) {
+        return categoryRepository.findCategoryJPQL(name);
+    }
+
+    @ResponseBody
+    @GetMapping("/findCategorySQL")
+    public Category findCategorySQL(@RequestParam("name") String name) {
+        return categoryRepository.findCategorySQL(name);
     }
 }

@@ -15,4 +15,6 @@ public interface CategoryService {
     public void deleteCategoryById(String id);
 
     public Category getCategoryById(String id);
+
+    public List<Category> getAllCategoryNonPaging();
 }
