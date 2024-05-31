@@ -15,4 +15,6 @@ public interface CategoryService {
     public void updateCategory(Category category);
 
     public void deleteCategory(String id);
+
+    public List<Category> getAllNonePaging();
 }
