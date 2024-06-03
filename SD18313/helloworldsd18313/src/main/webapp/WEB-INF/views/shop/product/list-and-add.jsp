@@ -42,6 +42,8 @@
                     <td>${item.price}</td>
                     <td>${item.createDate}</td>
                     <td>${item.category.name}</td>
+                    <td><a href="/shop/product/update/${item.id}">Update</a></td>
+                    <td><a href="/shop/product/delete?id=${item.id}">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>
