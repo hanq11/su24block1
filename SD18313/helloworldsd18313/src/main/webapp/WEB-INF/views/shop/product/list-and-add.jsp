@@ -22,7 +22,7 @@
         </select> <br>
         <button>Save</button>
     </form>
-    <h2>Table</h2>
+    <h2>Table</h2><x></x>
     <table>
         <thead>
             <tr>
